@@ -190,25 +190,17 @@ def parttwo():
                             ranges[len(ranges)-1] = mergetwoRanges(ranges[0],ranges[len(ranges)-1])
                             ranges.pop(0)
                         else:break
-            
-        
         if len(ranges)==2 and can_merge(ranges[0],ranges[1]):
             ranges = [mergetwoRanges(ranges[0],ranges[1]) ]
-             
         if len(ranges)!=1 : return [i,ranges]
-
 # [2,7][8,10]
 def can_merge(range1:list[int],range2:list[int])->bool:
     if len(range1)==0 or len(range2)==0 : return True
     if range1[0] < range2[1] and range1[0] < range2[0] and range1[1] < range2[1] and range1[1] < range2[0] : return False
     if range2[0] < range1[1] and range2[0] < range1[0] and range2[1] < range1[1] and range2[1] < range1[0] : return False
     return True
-
-
 def main ():
     # partone()
     print(parttwo())
-
-
 if __name__ == '__main__':
     main()
